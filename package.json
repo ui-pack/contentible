@@ -1,0 +1,23 @@
+{
+  "name": "editable",
+  "version": "1.0.0",
+  "description": "JavaScript simple editor",
+  "main": "src/editable.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "live-server --no-browser --no-css-inject --port=9090"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ui-pack/editable.git"
+  },
+  "author": "Joseph Rex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-pack/editable/issues"
+  },
+  "homepage": "https://github.com/ui-pack/editable#readme"
+}
