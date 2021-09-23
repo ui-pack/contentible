@@ -1,5 +1,5 @@
 import EditorControls from "./controls.js"
-import { autoInitialization } from "./helpers/index.js"
+import { autoInitialization, utils } from "./helpers/index.js"
 
 const defaultConfig = {
   content: { value: "" }
@@ -61,7 +61,7 @@ export default function Editor(userConfig) {
   // Handle input change
   editable.addEventListener("input", (e) => {
     // Fill with placeholder if blank
-    if (placeholderNode && !e.target.innerHTML) {
+    if (placeholderNode && utils.isEmptyContent(e.target.innerHTML)) {
       editorRoot.appendChild(placeholderNode)
     }
   })

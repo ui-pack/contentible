@@ -1,4 +1,6 @@
-import Editor, { EditorControls } from "editable"
+import Editor, { EditorControls } from "./editable.js"
+// When importmaps get better support
+// import Editor, { EditorControls } from "editable"
 
 // Auto initializer
 (function() {
