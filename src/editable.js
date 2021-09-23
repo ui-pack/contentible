@@ -1,5 +1,5 @@
 import EditorControls from "./controls.js"
-import { autoInitialization, utils } from "./helpers/index.js"
+import { autoInitialization, applyPlaceholder } from "./helpers/index.js"
 
 const defaultConfig = {
   content: { value: "" }
@@ -51,19 +51,9 @@ export default function Editor(userConfig) {
   const placeholderNode = editorRoot.querySelector(
     "[data-editable-placeholder]"
   )
-  // Handle keyup events
-  editable.addEventListener("keydown", (e) => {
-    // Remove placeholder
-    if (placeholderNode && /(Digit|Key)/.test(e.code)) {
-      placeholderNode.remove()
-    }
-  })
   // Handle input change
   editable.addEventListener("input", (e) => {
-    // Fill with placeholder if blank
-    if (placeholderNode && utils.isEmptyContent(e.target.innerHTML)) {
-      editorRoot.appendChild(placeholderNode)
-    }
+    applyPlaceholder(editorRoot, placeholderNode, e.target.innerHTML)
   })
   return config
 }
