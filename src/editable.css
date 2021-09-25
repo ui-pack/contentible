@@ -27,3 +27,32 @@
   -ms-user-select: none;
   user-select: none;
 }
+[data-editable-debugger] {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: hsl(230deg 30% 20%);
+  color: #e7e7e7;
+}
+[data-editable-debugger-header] {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  font-weight: bolder;
+  border-bottom: solid thin rgb(255 255 255/0.1)
+}
+[data-editable-debugger-output] {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding: 0 10px;
+  overflow-y: auto;
+}
+[data-editable-debugger-output] * {
+  margin: 0
+}
+[data-editable-debugger-output] > * {
+  padding: 10px 0;
+  border-bottom: solid thin rgb(0 0 0 /0.2)
+}
