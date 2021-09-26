@@ -1,10 +1,10 @@
 import Editor, { EditorControls } from "./editable.js"
-// When importmaps get better support
-// import Editor, { EditorControls } from "editable"
+import debug from "./helpers/debug.js"
 
 // Auto initializer
 (function() {
   const editableElement = document.querySelector(`[data-editable]`)
+  debug.visual("Initial load")
   if(editableElement) {
     Editor({
       container: editableElement,

@@ -2,7 +2,7 @@ import icon from "./icon.js"
 
 const debug = {}
 debug.visual = function(...params) {
-  let debugContainer, output, header
+  let debugContainer, output, outputContainer, header
   debugContainer = document.querySelector('[data-editable-debugger]')
   if (!debugContainer) {
     debugContainer = document.createElement('div')
@@ -12,23 +12,38 @@ debug.visual = function(...params) {
     header.append(
       "Editable Visual Debugger",
       icon("slash", {
+        width: 20,
+        height: 20,
+        stroke: "currentColor",
         button: {
           'data-editable-debugger-clear': true
         }
       })
     )
-    output = document.createElement('div')
-    output.dataset.editableDebuggerOutput = true
     debugContainer.appendChild(header)
     document.body.appendChild(debugContainer)
+
+    // Prepare output
+    output = document.createElement('div')
+    outputContainer = document.createElement('div')
+    output.dataset.editableDebuggerOutput = true
+    outputContainer.dataset.editableDebuggerOutputContainer = true
+
+    // Listen for clear button click
+    const clearButton = document.querySelector('[data-editable-debugger-clear]')
+    if(clearButton) {
+      clearButton.onclick = function() {
+        output.innerHTML = ""
+      }
+    }
   } else {
     output = debugContainer.querySelector('[data-editable-debugger-output]')
+    outputContainer = debugContainer.querySelector('[data-editable-debugger-output-container]')
   }
   const inputNodes = new DOMParser().parseFromString(`<main>${params.map(p => `<p>${p}</p>`).join("")}</main>`, "text/html")
   output.appendChild(inputNodes.body.firstChild)
-  output.scrollIntoView(false)
-  // output.scrollTop += output.scrollHeight
-  debugContainer.appendChild(output)
+  outputContainer.appendChild(output)
+  debugContainer.appendChild(outputContainer)
 }
 
 export default debug

@@ -54,7 +54,7 @@ export default function Editor(userConfig) {
   )
   // Handle input change
   editable.addEventListener("input", (e) => {
-    debug.visual(e.target.innerHTML)
+    debug.visual(e.target.innerHTML, e.inputType)
     applyPlaceholder(editorRoot, placeholderNode, e.target.innerHTML)
   })
   return config
