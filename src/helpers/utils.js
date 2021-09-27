@@ -1,4 +1,4 @@
-function isEmptyContent(html) {
+export function isEmptyContent(html) {
   if(!html) return true
 
   // Safari leaves a <br>
