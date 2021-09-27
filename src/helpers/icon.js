@@ -8,7 +8,7 @@ const iconDefaults = {
   strokeWidth: 2,
 }
 
-const SVG = xml => {
+export const SVG = xml => {
   return options => {
     const settings = {
       ...iconDefaults,

@@ -1,22 +1,24 @@
 import icon from "./icon.js"
+import config from "../config.js"
 
 const debug = {}
 debug.visual = function(...params) {
   let debugContainer, output, outputContainer, header
-  debugContainer = document.querySelector('[data-editable-debugger]')
+  debugContainer = document.querySelector(`[data-${config.library}-debugger]`)
   if (!debugContainer) {
     debugContainer = document.createElement('div')
-    debugContainer.dataset.editableDebugger = true
+    debugContainer.dataset.contentibleDebugger = true
     header = document.createElement('div')
-    header.dataset.editableDebuggerHeader = true
+    header.dataset.contentibleDebuggerHeader = true
     header.append(
-      "Editable Visual Debugger",
+      "Contentible Visual Debugger",
       icon("slash", {
         width: 20,
         height: 20,
         stroke: "currentColor",
         button: {
-          'data-editable-debugger-clear': true
+          [`data-${config.library}-debugger-clear`]: true,
+          title: 'Clear the debugger console'
         }
       })
     )
@@ -26,19 +28,19 @@ debug.visual = function(...params) {
     // Prepare output
     output = document.createElement('div')
     outputContainer = document.createElement('div')
-    output.dataset.editableDebuggerOutput = true
-    outputContainer.dataset.editableDebuggerOutputContainer = true
+    output.dataset.contentibleDebuggerOutput = true
+    outputContainer.dataset.contentibleDebuggerOutputContainer = true
 
     // Listen for clear button click
-    const clearButton = document.querySelector('[data-editable-debugger-clear]')
+    const clearButton = document.querySelector(`[data-${config.library}-debugger-clear]`)
     if(clearButton) {
       clearButton.onclick = function() {
         output.innerHTML = ""
       }
     }
   } else {
-    output = debugContainer.querySelector('[data-editable-debugger-output]')
-    outputContainer = debugContainer.querySelector('[data-editable-debugger-output-container]')
+    output = debugContainer.querySelector(`[data-${config.library}-debugger-output]`)
+    outputContainer = debugContainer.querySelector(`[data-${config.library}-debugger-output-container]`)
   }
   const inputNodes = new DOMParser().parseFromString(`<main>${params.map(p => `<p>${p}</p>`).join("")}</main>`, "text/html")
   output.appendChild(inputNodes.body.firstChild)

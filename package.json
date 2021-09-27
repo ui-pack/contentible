@@ -1,8 +1,8 @@
 {
-  "name": "editable",
-  "version": "1.0.0",
+  "name": "contentible",
+  "version": "0.0.1",
   "description": "JavaScript simple editor",
-  "main": "src/editable.js",
+  "main": "src/index.js",
   "directories": {
     "test": "test"
   },
@@ -12,12 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ui-pack/editable.git"
+    "url": "git+https://github.com/ui-pack/contentible.git"
   },
   "author": "Joseph Rex",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ui-pack/editable/issues"
+    "url": "https://github.com/ui-pack/contentible/issues"
   },
-  "homepage": "https://github.com/ui-pack/editable#readme"
+  "homepage": "https://github.com/ui-pack/contentible#readme",
+  "devDependencies": {
+    "@testing-library/dom": "^8.6.0",
+    "jest": "^27.2.2"
+  }
 }

@@ -4,16 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../src/editable.css">
-  <title>Editable Demo</title>
+  <link rel="stylesheet" href="../src/contentible.css">
+  <link rel="stylesheet" href="../src/controls.css">
+  <title>Contentible Demo</title>
+  <style>
+    body{
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello Editable!</h1>
-  <div data-editable="demo" data-controls="true" data-placeholder="Enter some rich text here..."></div>
+  <h1>Hello Contentible Editor!</h1>
+  <div data-contentible="demo" data-controls="true" data-placeholder="Enter some rich text here..."></div>
   <script type="importmap">
     {
       "imports": {
-        "editable": "../src/editable.js"
+        "contentible": "../src/contentible.js"
       }
     }
   </script>

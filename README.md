@@ -1,2 +1,2 @@
-# Editable
-Editable is a simple JavaScript editor
+# Contentible
+Contentible is a simple JavaScript editor

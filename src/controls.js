@@ -1,6 +1,6 @@
-export default function EditorControls() {
+export default function EditorControls({ library }) {
   const container = document.createElement("div")
-  container.setAttribute("data-editable-controls", true)
+  container.setAttribute(`data-${library}-controls`, true)
   container.style.setProperty("display", "flex")
   container.style.setProperty("gap", "10px")
   const boldButton = document.createElement("button")

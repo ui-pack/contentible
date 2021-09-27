@@ -1,14 +1,14 @@
-import Editor, { EditorControls } from "./editable.js"
+import Editor, { EditorControls } from "./contentible.js"
 import debug from "./helpers/debug.js"
 
 // Auto initializer
 (function() {
-  const editableElement = document.querySelector(`[data-editable]`)
+  const contentibleElement = document.querySelector(`[data-contentible]`)
   debug.visual("Initial load")
-  if(editableElement) {
+  if(contentibleElement) {
     Editor({
-      container: editableElement,
-      controls: editableElement.dataset.controls === "true" ? EditorControls : null,
+      container: contentibleElement,
+      controls: contentibleElement.dataset.controls === "true" ? EditorControls : null,
       auto: true,
       content: {
         value: ""
@@ -16,3 +16,9 @@ import debug from "./helpers/debug.js"
     })
   }
 }())
+
+export default Editor
+export {
+  EditorControls,
+  debug
+}

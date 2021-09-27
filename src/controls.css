@@ -1,0 +1,5 @@
+[data-contentible-controls] {
+  padding: 10px;
+  border-bottom: solid thin #e7e7e7;
+  font-family: var(--contentible-system-font);
+}
