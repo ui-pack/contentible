@@ -1,3 +1,6 @@
 export default {
-  library: 'contentible'
+  library: 'contentible',
+  editor: {
+    content: { value: "" }
+  },
 }

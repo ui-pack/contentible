@@ -1,4 +1,4 @@
-const isEmptyContent = html => {
+function isEmptyContent(html) {
   if(!html) return true
 
   // Safari leaves a <br>
@@ -7,7 +7,7 @@ const isEmptyContent = html => {
   return false
 }
 
-const type = literal => {
+export function type(literal) {
   const name = literal.constructor.name
   return {
     get is() {
@@ -25,7 +25,7 @@ const type = literal => {
   }
 }
 
-const words = string => {
+export function words(string) {
   switch (true) {
     case /_/.test(string):
       return string.match(/[a-zA-Z]+(?=(_|$))/g)
@@ -36,38 +36,29 @@ const words = string => {
   }
 }
 
-const snakeCase = string => {
+export function snakeCase(string) {
   return words(string.replace(/['\u2019]/g, '')).reduce((result, word, index) => (
     result.concat(`${index ? '_' : ''}${word.toLowerCase()}`)
   ), '')
 }
 
-const kebabCase = string => {
+export function kebabCase(string) {
   return words(string.replace(/['\u2019]/g, '')).reduce((result, word, index) => (
     result.concat(`${index ? '-' : ''}${word.toLowerCase()}`)
   ), '')
 }
 
-const camelCase = string => {
+export function camelCase(string) {
   return words(string.replace(/['\u2019]/g, '')).reduce((result, word, index) => (
     result.concat(index ? word : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
   ), '')
 }
 
-const toAttributes = options => {
+export function toAttributes(options) {
   return Object.keys(options).reduce((result, attribute, index) => {
     if(type(options[attribute]).isLiteralObject) return result
 
     const prefix = index === 0 ? '' : ' '
-    return result.concat(`${prefix}${kebabCase(attribute)}=${options[attribute]}`)
+    return result.concat(`${prefix}${kebabCase(attribute)}="${options[attribute]}"`)
   }, '')
-}
-
-export {
-  camelCase,
-  isEmptyContent,
-  kebabCase,
-  snakeCase,
-  toAttributes,
-  type
 }

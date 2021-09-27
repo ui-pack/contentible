@@ -3,15 +3,11 @@ import { autoInitialization, applyPlaceholder } from "./helpers/index.js"
 import debug from "./helpers/debug.js"
 import config from "./config.js"
 
-const { library } = config
-
-const defaultConfig = {
-  content: { value: "" }
-}
+const { library, editor: editorConfig } = config
 
 export default function Editor(userConfig) {
   const config = {
-    ...defaultConfig,
+    ...editorConfig,
     ...userConfig
   }
 
