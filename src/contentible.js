@@ -3,22 +3,22 @@ import { autoInitialization, applyPlaceholder } from "./helpers/index.js"
 import debug from "./helpers/debug.js"
 import config from "./config.js"
 
-const { library, editor: editorConfig } = config
+const { library, editor: editorSettings } = config
 
-export default function Editor(userConfig) {
-  const config = {
-    ...editorConfig,
-    ...userConfig
+export default function Editor(userSettings) {
+  const settings = {
+    ...editorSettings,
+    ...userSettings
   }
 
-  autoInitialization(config)
+  autoInitialization(settings)
 
-  const { name, content, controls } = config
-  if (!name && !config.container) {
+  const { name, content, controls } = settings
+  if (!name && !settings.container) {
     throw new Error("Editor requires a name or container property")
   }
   const container =
-    config.container || document.querySelector(`[data-${library}="${name}"]`)
+    settings.container || document.querySelector(`[data-${library}="${name}"]`)
   const editorRoot = document.createElement("div")
   editorRoot.setAttribute(`data-${library}-root`, true)
   const editor = document.createElement("div")
@@ -26,7 +26,7 @@ export default function Editor(userConfig) {
   editor.setAttribute("contenteditable", true)
   // Make sure it's only one editor in container for every instance
   if (!container || container?.querySelector("[contenteditable]")) {
-    return config
+    return settings
   }
   // Insert controls
   if (controls && controls instanceof Function) {
@@ -55,7 +55,7 @@ export default function Editor(userConfig) {
     debug.visual(e.target.innerHTML, e.inputType)
     applyPlaceholder(editorRoot, placeholderNode, e.target.innerHTML)
   })
-  return config
+  return settings
 }
 
 export { EditorControls }

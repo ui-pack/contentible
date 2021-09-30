@@ -6,15 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../src/contentible.css">
   <link rel="stylesheet" href="../src/controls.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <title>Contentible Demo</title>
   <style>
     body{
+      padding: 20px;
       text-align: center;
     }
+    .title{
+      margin: 10px 0;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 3em;
+    }
+    .description{
+      margin: 10px 0;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 400;
+    }
+    .logo{ border-radius: 4px }
   </style>
 </head>
 <body>
-  <h1>Hello Contentible Editor!</h1>
+  <img src="../static/contentible.jpg" class="logo" alt="Contentible Logo" />
+  <h1 class="title">Hello Contentible!</h1>
+  <p class="description">Start editing to see the editor in action</p>
   <div data-contentible="demo" data-controls="true" data-placeholder="Enter some rich text here..."></div>
   <script type="importmap">
     {
