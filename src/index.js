@@ -4,7 +4,7 @@ import debug from "./helpers/debug.js"
 // Auto initializer
 (function() {
   const contentibleElement = document.querySelector(`[data-contentible]`)
-  debug.visual("Initial load")
+  debug.visual("Initial load", navigator.userAgent)
   if(contentibleElement) {
     Editor({
       container: contentibleElement,
