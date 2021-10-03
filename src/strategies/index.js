@@ -1,5 +1,5 @@
-import EventStrategy from "./event.js"
-import ObserverStrategy from "./observer.js"
+import EventStrategy from "./event/index.js"
+import ObserverStrategy from "./observer/index.js"
 
 const strategies = {
   event: EventStrategy,

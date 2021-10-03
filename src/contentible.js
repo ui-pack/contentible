@@ -61,14 +61,12 @@ export default function Editor(userSettings) {
     `[data-${library}-placeholder]`
   )
 
-  applyStrategy(strategy, {
+  return applyStrategy(strategy, {
     editor,
     editorRoot,
     placeholderNode,
     settings,
   })
-
-  return settings
 }
 
 export { EditorControls }

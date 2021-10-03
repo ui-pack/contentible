@@ -1,7 +1,11 @@
 export default {
   library: 'contentible',
   editor: {
-    content: { value: "" },
-    strategy: 'observer'
+    content: {
+      blocks: [],
+      time: 0,
+      value: ""
+    },
+    strategy: 'observer',
   },
 }

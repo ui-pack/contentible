@@ -1,3 +1,5 @@
+import { applyPlaceholder, mutables } from "../../helpers/index.js"
+
 export default function ObserverStrategy({
   editor,
   editorRoot,
@@ -5,7 +7,9 @@ export default function ObserverStrategy({
   settings,
 }) {
   function observerCallback(mutations) {
-    console.log(editor.textContent, mutations)
+    const characterData = mutables.findLast(mutations)
+    console.log({ mutations, characterData, settings })
+    applyPlaceholder(editorRoot, placeholderNode, characterData.target.data)
   }
 
   const observer = new MutationObserver(observerCallback)
@@ -17,4 +21,6 @@ export default function ObserverStrategy({
     attributeOldValue: true,
     subtree: true
   })
+
+  return settings
 }

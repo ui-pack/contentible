@@ -1,5 +1,5 @@
-import debug from "../helpers/debug.js"
-import { applyPlaceholder } from "../helpers/index.js"
+import debug from "../../helpers/debug.js"
+import { applyPlaceholder } from "../../helpers/index.js"
 
 export default function EventStrategy({
   editor,
@@ -13,4 +13,6 @@ export default function EventStrategy({
     debug.visual(e.target.innerHTML, e.inputType)
     applyPlaceholder(editorRoot, placeholderNode, e.target.innerHTML)
   })
+
+  return settings
 }
