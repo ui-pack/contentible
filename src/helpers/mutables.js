@@ -5,8 +5,9 @@ export function findLast(mutations) {
         acc[prop] = mutation[prop]
       }
     }
-    // if(mutation.type === "childList") {
-    //   const parent = mutation.target.offsetParent
+    // if(mutation.type === "childList" && mutation.target.innerText === "\n") {
+      // const parent = mutation.target.offsetParent
+      // acc[target] = { ...mutation.target, data: "\n" }
     // }
     return acc
   }, { target: {} })

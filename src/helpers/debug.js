@@ -1,14 +1,15 @@
 import icon from "./icon.js"
 import config from "../config.js"
+import ENV from "../environment.js"
 
 const debug = {}
 debug.visual = function(...params) {
   let debugContainer, output, outputContainer, header
-  debugContainer = document.querySelector(`[data-${config.library}-debugger]`)
+  debugContainer = ENV.document.querySelector(`[data-${config.library}-debugger]`)
   if (!debugContainer) {
-    debugContainer = document.createElement('div')
+    debugContainer = ENV.document.createElement('div')
     debugContainer.dataset.contentibleDebugger = true
-    header = document.createElement('div')
+    header = ENV.document.createElement('div')
     header.dataset.contentibleDebuggerHeader = true
     header.append(
       "Contentible Visual Debugger",
@@ -23,16 +24,16 @@ debug.visual = function(...params) {
       })
     )
     debugContainer.appendChild(header)
-    document.body.appendChild(debugContainer)
+    ENV.document.body.appendChild(debugContainer)
 
     // Prepare output
-    output = document.createElement('div')
-    outputContainer = document.createElement('div')
+    output = ENV.document.createElement('div')
+    outputContainer = ENV.document.createElement('div')
     output.dataset.contentibleDebuggerOutput = true
     outputContainer.dataset.contentibleDebuggerOutputContainer = true
 
     // Listen for clear button click
-    const clearButton = document.querySelector(`[data-${config.library}-debugger-clear]`)
+    const clearButton = ENV.document.querySelector(`[data-${config.library}-debugger-clear]`)
     if(clearButton) {
       clearButton.onclick = function() {
         output.innerHTML = ""

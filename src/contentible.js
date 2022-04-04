@@ -2,6 +2,7 @@ import EditorControls from "./controls.js"
 import { autoInitialization } from "./helpers/index.js"
 import { applyStrategy } from "./strategies/index.js"
 import config from "./config.js"
+import ENV from "./environment.js"
 
 const { library, editor: editorSettings } = config
 
@@ -24,10 +25,10 @@ export default function Editor(userSettings) {
   }
 
   const container =
-    settings.container || document.querySelector(`[data-${library}="${name}"]`)
-  const editorRoot = document.createElement("div")
+    settings.container || ENV.document.querySelector(`[data-${library}="${name}"]`)
+  const editorRoot = ENV.document.createElement("div")
   editorRoot.setAttribute(`data-${library}-root`, true)
-  const editor = document.createElement("div")
+  const editor = ENV.document.createElement("div")
   editor.setAttribute(`data-${library}-editor`, true)
   editor.setAttribute("contenteditable", true)
 
@@ -44,7 +45,7 @@ export default function Editor(userSettings) {
   // Apply placeholder
   const placeholder = container.getAttribute("data-placeholder")
   if (!content.value) {
-    const placeContainer = document.createElement("span")
+    const placeContainer = ENV.document.createElement("span")
     placeContainer.setAttribute(`data-${library}-placeholder`, true)
     placeContainer.textContent = placeholder
     editorRoot.appendChild(placeContainer)

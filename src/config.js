@@ -6,6 +6,6 @@ export default {
       time: 0,
       value: ""
     },
-    strategy: 'observer',
+    strategy: 'event',
   },
 }
